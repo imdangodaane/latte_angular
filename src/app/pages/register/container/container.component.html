@@ -1,0 +1,111 @@
+<div class="row">
+  <div class="offset-sm-2 col-md-8">
+    <nb-card>
+      <nb-card-header><h3>Đăng ký tài khoản</h3></nb-card-header>
+      <nb-card-body>
+        <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="form-horizontal">
+          <div class="form-group row">
+            <label for="userid" class="label col-sm-3 form-control-label">Tên đăng nhập:</label>
+            <div class="col-sm-9">
+              <input type="text" id="userid" name="userid" placeholder="Username"
+                      nbInput
+                      fullWidth
+                      class="form-control"
+                      ngModel
+                      required
+                      #userid="ngModel">
+            </div>
+          </div>
+          <div style="width: 80%;" [hidden]="userid.valid || userid.pristine"
+                class="offset-sm-4 col-sm-7 alert alert-danger">
+            Yêu cầu nhập tên đăng nhập
+          </div>
+          <div class="form-group row">
+            <label for="user_pass" class="label col-sm-3 form-control-label">Mật khẩu:</label>
+            <div class="col-sm-9">
+              <input type="password" id="user_pass" name="user_pass" placeholder="Password"
+                      nbInput
+                      fullWidth
+                      class="form-control"
+                      ngModel
+                      required
+                      #user_pass="ngModel">
+            </div>
+          </div>
+          <div style="width: 80%;" [hidden]="user_pass.valid || user_pass.pristine"
+                class="offset-sm-4 col-sm-7 alert alert-danger">
+            Yêu cầu nhập mật khẩu
+          </div>
+          <div class="form-group row">
+            <label for="confirmPassword" class="label col-sm-3 form-control-label">Xác nhận mật khẩu:</label>
+            <div class="col-sm-9">
+              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"
+                      nbInput
+                      fullWidth
+                      class="form-control"
+                      ngModel
+                      required
+                      #confirmPassword="ngModel">
+            </div>
+          </div>
+          <div style="width: 80%;" [hidden]="user_pass.value === confirmPassword.value || confirmPassword.pristine"
+                class="offset-sm-4 col-sm-7 alert alert-danger">
+            Mật khẩu xác nhận chưa khớp
+          </div>
+          <div class="form-group row">
+            <label for="email" class="label col-sm-3 form-control-label">Email</label>
+            <div class="col-sm-9">
+              <input type="email" id="email" name="email" placeholder="Email"
+                      nbInput
+                      fullWidth
+                      class="form-control"
+                      ngModel
+                      required
+                      #email="ngModel"
+                      email>
+            </div>
+          </div>
+          <div style="width: 80%;" [hidden]="email.valid || email.pristine"
+                class="offset-sm-4 col-sm-7 alert alert-danger">
+            Email không hợp lệ
+          </div>
+          <div class="form-group row">
+            <label for="sex" class="label col-sm-3 form-control-label">Giới tính</label>
+            <div class="col-sm-9">
+              <nb-radio-group [(ngModel)]="sex" name="sex">
+                <nb-radio value="M">Nam</nb-radio>
+                <nb-radio value="F">Nữ</nb-radio>
+              </nb-radio-group>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="birthdate" class="label col-sm-3 form-control-label">Ngày sinh</label>
+            <div class="col-sm-9">
+              <input placeholder="Birthdate" name="birthdate" ngModel
+                      [nbDatepicker]="birthdate"
+                      nbInput>
+              <nb-datepicker #birthdate></nb-datepicker>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group row">
+            <div class="col-sm-9">
+              <div class="checkbox">
+                <nb-checkbox (checkedChange)="agreeTerm = !agreeTerm">Tôi đồng ý với điều khoản cung cấp dịch vụ</nb-checkbox>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <button type="submit" 
+                      nbButton
+                      class='btn-block'
+                      status="primary"
+                      [disabled]="!agreeTerm || !registerForm.form.valid">Đăng ký</button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

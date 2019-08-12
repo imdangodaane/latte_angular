@@ -1,0 +1,14 @@
+<div class="col-md-9">
+  <nb-card>
+    <nb-card-header>Tin tức</nb-card-header>
+    <nb-list
+      nbInfiniteList
+      listenWindowScroll
+      [threshold]="500"
+      (bottomThreshold)="loadNext(newsCard)">
+      <nb-list-item *ngFor="let newsPost of newsCard.news">
+        <app-post [post]="newsPost"></app-post>
+      </nb-list-item>
+    </nb-list>
+  </nb-card>
+</div>

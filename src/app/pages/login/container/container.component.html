@@ -1,0 +1,52 @@
+<div class="login-box">
+  <nb-card class="col-md-5">
+    <nb-card-header>
+      <h2>Đăng nhập</h2>
+    </nb-card-header>
+    <nb-card-body>
+      <!-- TEMPLATE-DRIVEN LOGIN FORM -->
+      <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+        <!-- Username -->
+        <div class="form-group">
+          <label for="userid">Tên tài khoản: </label>
+          <div style="display: flex;">
+            <input type="text" id="userid" name="userid" placeholder="Username"
+                    class="form-control"
+                    ngModel
+                    required
+                    #userid="ngModel">
+                    <button class="togglePasswordButton" [disabled]="true"><nb-icon icon="person-outline"></nb-icon></button>
+          </div>
+          <div style="width: 80%;" [hidden]="userid.valid || userid.pristine"
+                class="alert alert-danger">
+            Yêu cầu tên đăng nhập
+          </div>
+        </div>
+        <!-- Password -->
+        <div class="form-group">
+          <label for="user_pass">Mật khẩu: </label>
+          <div style="display: flex;">
+            <input [type]="hidePassword ? 'password' : 'text'" name="user_pass" id="user_pass" placeholder="Password"
+                    class="form-control"
+                    ngModel
+                    required
+                    #user_pass="ngModel">
+            <button type="button" class="togglePasswordButton" (click)="hidePassword = !hidePassword" [disabled]="user_pass.pristine"><nb-icon icon="eye"></nb-icon></button>
+          </div>
+          <div style="width: 80%;" [hidden]="user_pass.valid || user_pass.pristine"
+              class="alert alert-danger">
+            Mật khẩu trống
+          </div>
+        </div>
+        <!-- SUBMIT BUTTON -->
+        <hr>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.form.valid">Đăng nhập</button>
+        <div style="margin-top: 10px;" *ngIf="returnMessage"
+              class="alert alert-danger">
+          {{ returnMessage }}
+        </div>
+      </form>
+    </nb-card-body>
+  </nb-card>
+</div>
+  

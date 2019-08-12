@@ -1,0 +1,21 @@
+.login-box
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+.togglePasswordButton
+{
+  border: none;
+  background: none;
+  outline: none;
+}
+.ng-valid[required], .ng-valid.required
+{
+  border-left: 5px solid #42A948;
+}
+.ng-invalid:not(form)
+{
+  border-left: 5px solid #A94442;
+}
