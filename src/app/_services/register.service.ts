@@ -21,9 +21,7 @@ export class RegisterService {
     if (data.confirmPassword) {
       delete data.confirmPassword;
     }
-    console.log(data.birthdate);
     data.birthdate = data.birthdate.toLocaleDateString();
-    console.log(data.birthdate);
     return this.http.post<any>(`${environment.apiUrl}register/`, data, this.httpOptions)
             .pipe();
   }

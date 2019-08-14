@@ -7,12 +7,24 @@ import { HomeModule } from './home/home.module';
 import {
   NbLayoutModule,
   NbSidebarModule,
-  NbCardModule
+  NbCardModule,
+  NbActionsModule,
+  NbPopoverModule,
+  NbButtonModule,
+  NbMenuModule,
+  NbUserModule,
+  NbIconModule
 } from '@nebular/theme';
 import { NewsModule } from './news/news.module';
 import { DownloadModule } from './download/download.module';
 import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
+import { AccountModule } from './account/account.module';
+import { DatabaseModule } from './database/database.module';
+import { InformationModule } from './information/information.module';
+import { ForumModule } from './forum/forum.module';
+import { WikiModule } from './wiki/wiki.module';
+import { SupportModule } from './support/support.module';
 
 
 @NgModule({
@@ -27,7 +39,21 @@ import { LoginModule } from './login/login.module';
     NewsModule,
     DownloadModule,
     RegisterModule,
-    LoginModule
+    LoginModule,
+    AccountModule,
+    DatabaseModule,
+    NbActionsModule,
+    NbPopoverModule,
+    NbButtonModule,
+    NbMenuModule,
+    NbSidebarModule,
+    NbMenuModule,
+    InformationModule,
+    ForumModule,
+    WikiModule,
+    SupportModule,
+    NbUserModule,
+    NbIconModule
   ]
 })
 export class PagesModule { }

@@ -12,6 +12,7 @@ import {
   NbDatepickerModule,
   NbSelectModule,
   NbIconModule,
+  NbAlertModule,
 } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     NbDatepickerModule,
     NbSelectModule,
     NbIconModule,
-    FormsModule
+    FormsModule,
+    NbAlertModule
   ]
 })
 export class RegisterModule { }

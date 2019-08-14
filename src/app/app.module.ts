@@ -9,12 +9,15 @@ import {
   NbThemeModule,
   NbLayoutModule,
   NbSidebarModule,
-  NbDatepickerModule
+  NbDatepickerModule,
+  NbMenuModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { PagesModule } from './pages/pages.module';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtModule } from '@auth0/angular-jwt';
+import { DatabaseModule } from './pages/database/database.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -25,7 +28,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({ name: 'corporate' }),
+    NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbEvaIconsModule,
     PagesModule,
@@ -39,6 +42,11 @@ import { JwtModule } from '@auth0/angular-jwt';
       }
     }),
     NbDatepickerModule.forRoot(),
+    DatabaseModule,
+    NbMenuModule.forRoot(),
+    NgbModule,
+    NbSidebarModule.forRoot(),
+    NbMenuModule.forRoot(),
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

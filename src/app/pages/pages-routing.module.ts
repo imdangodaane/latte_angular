@@ -30,6 +30,34 @@ const routes: Routes = [
       {
         path: 'register',
         loadChildren: './register/register.module#RegisterModule'
+      },
+      {
+        path: 'account',
+        loadChildren: './account/account.module#AccountModule'
+      },
+      {
+        path: 'db',
+        loadChildren: './database/database.module#DatabaseModule'
+      },
+      {
+        path: 'information',
+        loadChildren: './information/information.module#InformationModule'
+      },
+      {
+        path: 'news',
+        loadChildren: './news/news.module#NewsModule'
+      },
+      {
+        path: 'forum',
+        loadChildren: './forum/forum.module#ForumModule'
+      },
+      {
+        path: 'wiki',
+        loadChildren: './wiki/wiki.module#WikiModule'
+      },
+      {
+        path: 'support',
+        loadChildren: './support/support.module#SupportModule'
       }
     ]
   }

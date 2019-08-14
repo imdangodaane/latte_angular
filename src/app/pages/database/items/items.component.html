@@ -1,0 +1,28 @@
+<nb-card>
+  <nb-card-body>
+    <div style="display: flex; justify-content: flex-end;">
+        <nb-select [(selected)]="rowsPerPage"
+        (selectedChange)="onPageChange(rowsPerPage)"
+        placeholder="Display">
+        <nb-option value="10">Display 10 rows</nb-option>
+        <nb-option value="30">Display 30 rows</nb-option>
+        <nb-option value="50">Display 50 rows</nb-option>
+        <nb-option value="100">Display 100 rows</nb-option>
+      </nb-select>
+    </div>
+    <div *ngIf="statusMessage" class="fixed-top">
+      <hr>
+      <nb-alert [status]="statusMessage !== 'Failed'? 'success' : 'danger'">
+        {{ statusMessage }}
+      </nb-alert>
+    </div>
+    <hr>
+    <div *ngIf="source">
+      <ng2-smart-table [settings]="smartTableSettings" [source]="source"
+                        (createConfirm)="onAdd($event)"
+                        (editConfirm)="onEdit($event)"
+                        (deleteConfirm)="onDelete($event)"></ng2-smart-table>
+    </div>
+    <hr>
+  </nb-card-body>
+</nb-card>

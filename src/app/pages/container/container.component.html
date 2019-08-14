@@ -1,8 +1,36 @@
 <nb-layout>
 
-  <nb-layout-header>
-    <h2>Latte-RO</h2>
+  <nb-layout-header fixed>
+    <div class="top-navbar col-md-12">
+      <div class="header-container">
+        <div class="logo-container">
+          <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+            <nb-icon icon="menu-2-outline"></nb-icon>
+          </a>
+          <a class="logo" href="#" (click)="navigateHome()">Latte-<span>RO</span></a>
+        </div>
+        <nb-actions>
+          <nb-action link="/" title="Home" icon="home-outline"></nb-action>
+          <nb-action link="/download" title="Download" icon="download-outline"></nb-action>
+          <nb-action link="/news" title="News" icon="browser-outline"></nb-action>
+        </nb-actions>
+      </div>
+      <nb-user *ngIf="userInformation"
+                name="{{userInformation.name}}"
+                title="{{userInformation.title}}"
+                picture="{{userInformation.imageUrl}}"
+                size="large"
+                shape="semi-round"
+                badgeText="7"
+                badgeStatus="success"
+                badgePosition="bottom right">
+      </nb-user>
+    </div>
   </nb-layout-header>
+
+  <nb-sidebar style="padding: 0; !important">
+    <nb-menu [items]="menuItems" autoCollapse=true></nb-menu>
+  </nb-sidebar>
 
   <nb-layout-column>
     <router-outlet></router-outlet>
