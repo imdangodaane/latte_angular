@@ -6,38 +6,17 @@ import { AuthGuard } from '../_helper/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: ContainerComponent,
-    loadChildren: './login/login.module#LoginModule'
-  },
-  {
     path: '',
-    canActivate: [AuthGuard],
     component: ContainerComponent,
     children: [
       {
         path: '',
-        loadChildren: './news/news.module#NewsModule'
+        redirectTo: '/news',
+        pathMatch: 'full'
       },
       {
-        path: 'home',
-        loadChildren: './home/home.module#HomeModule'
-      },
-      {
-        path: 'download',
-        loadChildren: './download/download.module#DownloadModule'
-      },
-      {
-        path: 'register',
-        loadChildren: './register/register.module#RegisterModule'
-      },
-      {
-        path: 'account',
-        loadChildren: './account/account.module#AccountModule'
-      },
-      {
-        path: 'db',
-        loadChildren: './database/database.module#DatabaseModule'
+        path: 'login',
+        loadChildren: './login/login.module#LoginModule'
       },
       {
         path: 'information',
@@ -58,9 +37,33 @@ const routes: Routes = [
       {
         path: 'support',
         loadChildren: './support/support.module#SupportModule'
-      }
-    ]
-  }
+      },
+      {
+        path: 'download',
+        loadChildren: './download/download.module#DownloadModule'
+      },
+      {
+        path: 'register',
+        loadChildren: './register/register.module#RegisterModule'
+      },
+      // { path: '**', component: PageNotFoundComponent },
+    ],
+  },
+  // {
+  //   path: 'account',
+  //   canActivate: [AuthGuard],
+  //   component: ContainerComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       loadChildren: './account/account.module#AccountModule'
+  //     },
+  //     {
+  //       path: 'db',
+  //       loadChildren: './database/database.module#DatabaseModule'
+  //     },
+  //   ]
+  // }
 ];
 
 @NgModule({

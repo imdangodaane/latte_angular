@@ -21,9 +21,9 @@ export class ContainerComponent implements OnInit {
   // restrictColumns = ['id', 'createdAt', 'updatedAt', 'deletedAt'];
   // statusMessage: string;
 
-  // constructor(
-  //   private smartTableService: SmartTableService,
-  // ) {}
+  constructor(
+    // private smartTableService: SmartTableService,
+  ) {}
 
   // onPageChange(rowsPerPage: string) {
   //   this.source.setPaging(1, Number(rowsPerPage));

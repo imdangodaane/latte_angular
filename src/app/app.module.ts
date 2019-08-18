@@ -18,6 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { DatabaseModule } from './pages/database/database.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

@@ -3,7 +3,10 @@
 @include nb-install-component {
   // --actions-icon-color: brown;
 }
-
+.scrollable
+{
+  padding: 0 !important;
+}
 .top-navbar
 {
   display: flex;
