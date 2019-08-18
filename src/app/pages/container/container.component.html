@@ -1,5 +1,4 @@
 <nb-layout>
-
   <nb-layout-header>
     <div class="top-navbar col-md-12">
       <div class="header-container">
@@ -7,7 +6,7 @@
           <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
             <nb-icon icon="menu-2-outline"></nb-icon>
           </a>
-          <a class="logo" href="#" (click)="navigateHome()">Latte-<span>RO</span></a>
+          <a class="logo" href="/" (click)="navigateHome()">Latte-<span>RO</span></a>
         </div>
         <nb-actions>
           <nb-action link="/" title="Home" icon="home-outline"></nb-action>
@@ -29,7 +28,11 @@
   </nb-layout-header>
 
   <nb-sidebar>
-    <nb-menu [items]="menuItems" autoCollapse=true></nb-menu>
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle2">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <nb-menu [items]="menuItems" autoCollapse=true>
+    </nb-menu>
   </nb-sidebar>
 
   <nb-layout-column>

@@ -1,0 +1,56 @@
+.container
+{
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0;
+  .image
+  {
+    flex: 0 0 40%;
+    align-self: center;
+  }
+  .information
+  {
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    .tag
+    {
+      display: inline;
+      color: white;
+      background-color: yellowgreen;
+      padding: 2px;
+      border-top-right-radius: 0.3rem;
+      border-bottom-left-radius: 0.3rem;
+    }
+    h4
+    {
+      margin: 0;
+    }
+    .title
+    {
+      font-weight: bold;
+      font-size: 1.5rem;
+      overflow: auto;
+    }
+    .content
+    {
+
+    }
+    .footer
+    {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      .author
+      {
+        font-weight: bold;
+        color: red;
+      }
+      .datetime
+      {
+
+      }
+    }
+  }
+}

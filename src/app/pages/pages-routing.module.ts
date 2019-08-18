@@ -6,6 +6,14 @@ import { AuthGuard } from '../_helper/auth.guard';
 
 const routes: Routes = [
   {
+    path: 'login',
+    loadChildren: './login/login.module#LoginModule'
+  },
+  {
+    path: 'article',
+    loadChildren: './article/article.module#ArticleModule'
+  },
+  {
     path: '',
     component: ContainerComponent,
     children: [
@@ -13,10 +21,6 @@ const routes: Routes = [
         path: '',
         redirectTo: '/news',
         pathMatch: 'full'
-      },
-      {
-        path: 'login',
-        loadChildren: './login/login.module#LoginModule'
       },
       {
         path: 'information',

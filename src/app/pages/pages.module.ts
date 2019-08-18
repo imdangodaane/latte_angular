@@ -25,6 +25,7 @@ import { InformationModule } from './information/information.module';
 import { ForumModule } from './forum/forum.module';
 import { WikiModule } from './wiki/wiki.module';
 import { SupportModule } from './support/support.module';
+import { ArticleModule } from './article/article.module';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { SupportModule } from './support/support.module';
     WikiModule,
     SupportModule,
     NbUserModule,
-    NbIconModule
+    NbIconModule,
+    ArticleModule
   ]
 })
 export class PagesModule { }

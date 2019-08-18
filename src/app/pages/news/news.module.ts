@@ -12,6 +12,7 @@ import { PostComponent } from './post/post.component';
 import { CarouselModule } from 'angular-bootstrap-md';
 import { CarouselListComponent } from './carousel-list/carousel-list.component';
 import { CarouselDetailComponent } from './carousel-detail/carousel-detail.component';
+import { ArticleModule } from './article/article.module';
 
 @NgModule({
   declarations: [ContainerComponent, PostComponent, CarouselListComponent, CarouselDetailComponent],
@@ -21,7 +22,8 @@ import { CarouselDetailComponent } from './carousel-detail/carousel-detail.compo
     NbCardModule,
     NbListModule,
     NbIconModule,
-    CarouselModule
+    CarouselModule,
+    ArticleModule
   ]
 })
 export class NewsModule { }

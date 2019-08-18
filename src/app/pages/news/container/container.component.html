@@ -6,8 +6,10 @@
       nbInfiniteList
       listenWindowScroll
       [threshold]="500"
-      (bottomThreshold)="loadNext(newsCard)">
-      <nb-list-item *ngFor="let newsPost of newsCard.news">
+      (bottomThreshold)="loadNext(newsCard)"
+      class="col-11"
+      style="padding: 0;">
+      <nb-list-item *ngFor="let newsPost of newsCard.news" style="padding: 0.5rem 0;">
         <app-post [post]="newsPost"></app-post>
       </nb-list-item>
     </nb-list>
