@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { InformationRoutingModule } from './information-routing.module';
 import { ContainerComponent } from './container/container.component';
-import { NbCardModule, NbAccordionModule } from '@nebular/theme';
+import { NbCardModule, NbAccordionModule, NbTabsetModule } from '@nebular/theme';
 
 
 @NgModule({
@@ -12,7 +12,8 @@ import { NbCardModule, NbAccordionModule } from '@nebular/theme';
     CommonModule,
     InformationRoutingModule,
     NbCardModule,
-    NbAccordionModule
+    NbAccordionModule,
+    NbTabsetModule
   ]
 })
 export class InformationModule { }

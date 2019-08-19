@@ -1,8 +1,10 @@
 <div class="row">
   <div class="offset-sm-2 col-md-8">
     <nb-card>
-      <div *ngIf="returnMessage"><nb-alert status="success">{{ returnMessage }}</nb-alert></div>
-      <nb-card-header><h3>Đăng ký tài khoản</h3></nb-card-header>
+      <nb-card-header>
+        <h3>Đăng ký tài khoản</h3>
+        <div class="alert" *ngIf="returnMessage"><nb-alert [status]="returnCode>=400?'danger':'success'">{{ returnMessage }}</nb-alert></div>
+      </nb-card-header>
       <nb-card-body>
         <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="form-horizontal">
           <div class="form-group row">
@@ -14,12 +16,13 @@
                       class="form-control"
                       ngModel
                       required
+                      minlength="4"
                       #userid="ngModel">
             </div>
           </div>
           <div style="width: 80%;" [hidden]="userid.valid || userid.pristine"
                 class="offset-sm-4 col-sm-7 alert alert-danger">
-            Yêu cầu nhập tên đăng nhập
+            Tên đăng nhập phải có ít nhất 4 ký tự
           </div>
           <div class="form-group row">
             <label for="user_pass" class="label col-sm-3 form-control-label">Mật khẩu:</label>
@@ -30,12 +33,13 @@
                       class="form-control"
                       ngModel
                       required
+                      minlength="4"
                       #user_pass="ngModel">
             </div>
           </div>
           <div style="width: 80%;" [hidden]="user_pass.valid || user_pass.pristine"
                 class="offset-sm-4 col-sm-7 alert alert-danger">
-            Yêu cầu nhập mật khẩu
+            Mật khẩu phải có ít nhất 4 ký tự
           </div>
           <div class="form-group row">
             <label for="confirmPassword" class="label col-sm-3 form-control-label">Xác nhận mật khẩu:</label>
@@ -51,7 +55,7 @@
           </div>
           <div style="width: 80%;" [hidden]="user_pass.value === confirmPassword.value || confirmPassword.pristine"
                 class="offset-sm-4 col-sm-7 alert alert-danger">
-            Mật khẩu xác nhận chưa khớp
+            Mật khẩu xác nhận chưa trùng khớp
           </div>
           <div class="form-group row">
             <label for="email" class="label col-sm-3 form-control-label">Email</label>
@@ -98,7 +102,7 @@
           </div>
           <div class="form-group row">
             <div class="col-sm-12">
-              <button type="submit" 
+              <button type="submit"
                       nbButton
                       class='btn-block'
                       status="primary"

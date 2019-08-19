@@ -15,7 +15,7 @@
                     ngModel
                     required
                     #userid="ngModel">
-                    <button class="togglePasswordButton" [disabled]="true"><nb-icon icon="person-outline"></nb-icon></button>
+            <a class="togglePasswordButton"><nb-icon icon="person-outline"></nb-icon></a>
           </div>
           <div style="width: 80%;" [hidden]="userid.valid || userid.pristine"
                 class="alert alert-danger">
@@ -31,7 +31,8 @@
                     ngModel
                     required
                     #user_pass="ngModel">
-            <button type="button" class="togglePasswordButton" (click)="hidePassword = !hidePassword" [disabled]="user_pass.pristine"><nb-icon icon="eye"></nb-icon></button>
+            <a class="togglePasswordButton" (click)="hidePassword = !hidePassword"><nb-icon icon="eye"></nb-icon></a>
+            <!-- <button type="button" class="togglePasswordButton" (click)="hidePassword = !hidePassword" [disabled]="user_pass.pristine"><nb-icon icon="eye"></nb-icon></button> -->
           </div>
           <div style="width: 80%;" [hidden]="user_pass.valid || user_pass.pristine"
               class="alert alert-danger">
@@ -49,4 +50,3 @@
     </nb-card-body>
   </nb-card>
 </div>
-  

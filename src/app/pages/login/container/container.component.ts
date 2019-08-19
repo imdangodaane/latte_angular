@@ -32,8 +32,6 @@ export class ContainerComponent implements OnInit {
         err => {
           this.returnMessage = err.error.detail;
           setTimeout(() => this.returnMessage = null, 1500);
-          // console.error(err.error.detail);
-          // console.error(err.status);
         }
       );
   }

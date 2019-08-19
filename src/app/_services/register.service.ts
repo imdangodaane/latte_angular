@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegisterModel } from '../_models/registerModel';
 import { environment } from '../../environments/environment';
+import { API_URL } from '../../environments/API-references';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class RegisterService {
       delete data.confirmPassword;
     }
     data.birthdate = data.birthdate.toLocaleDateString();
-    return this.http.post<any>(`${environment.apiUrl}register/`, data, this.httpOptions)
+    return this.http.post<any>(`${API_URL.API_URL_REGISTER}`, data, this.httpOptions)
             .pipe();
   }
 }

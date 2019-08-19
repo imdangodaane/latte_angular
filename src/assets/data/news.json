@@ -1,5 +1,10 @@
 [
     {
+      "title": "Kenz đẹp trai nhưng vẫn chưa có người yêu, lý do gì khiến anh lại như vậy?",
+      "link": "https://www.facebook.com/NAT.TuanNguyen",
+      "text": "Bạn đã có bao giờ thắc mắc đến điều này? Def, một người bạn thân của kenz phân trần: 'Chuyện này có vẻ khó, nhưng thôi hu ce???'"
+    },
+    {
       "title": "Fan of Angular-In-Depth and my writings? Support us on Twitter!",
       "link": "https://blog.angularindepth.com/fan-of-angular-in-depth-and-my-writings-support-us-on-twitter-e3bfcbabb4b1",
       "text": "A few weeks ago I ran a poll on Twitter to understand why Angular account has 280k followers on Twitter while Angular-In-Depth has only a fraction of that on Medium (11k). The poll showed that 50% of those who responded don’t use Medium, 17% find stories too complicated, 27% have no time to read and there are people (7%) who find stories not interesting."
@@ -350,4 +355,3 @@
       "text": "There’s one question that comes up again and again on stackoverflow. The question is about ngDoCheck lifecycle hook that is triggered for a component that implements OnPush change detection strategy."
     }
   ]
-  

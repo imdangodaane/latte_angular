@@ -11,6 +11,7 @@ export class ContainerComponent implements OnInit {
   sex = '';
   agreeTerm = false;
   returnMessage: string;
+  returnCode: number;
 
   constructor(
     private registerService: RegisterService,
@@ -23,12 +24,25 @@ export class ContainerComponent implements OnInit {
       .subscribe(
         res => {
           if (res) {
-            this.returnMessage = 'Đăng ký thành công, đang chuyển về trang đăng nhập.';
+            this.returnMessage = 'Đăng ký thành công, đang chuyển về trang đăng nhập';
             setTimeout(() => this.router.navigate(['/login']), 1500);
           }
         },
         err => {
-          console.error(err);
+          if (err) {
+            if (err.error.detail === 'Username existed') {
+              this.returnMessage = 'Tên tài khoản đã tồn tại';
+            } else if (err.error.detail === 'Email existed') {
+              this.returnMessage = 'Email đã tồn tại';
+            } else {
+              this.returnMessage = 'Lỗi chưa xác định';
+            }
+            this.returnCode = +err.status;
+            setTimeout(() => {
+              this.returnMessage = '';
+              this.returnCode = 0;
+            }, 3000);
+          }
         }
       );
   }
