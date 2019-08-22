@@ -10,26 +10,27 @@ export const MenuItems = [
     icon: 'download-outline',
   },
   {
-    title: 'Thông tin server',
-    link: '/information',
-    icon: 'info-outline',
-  },
-  {
     title: 'Đăng ký tài khoản',
-    icon: 'person-outline',
+    // icon: 'person-outline',
+    icon: 'plus',
     link: '/register',
     // children: [
-    //   {
-    //     title: 'Đăng nhập',
-    //     link: '/login',
-    //     icon: 'corner-down-right-outline',
-    //   },
+      //   {
+        //     title: 'Đăng nhập',
+        //     link: '/login',
+        //     icon: 'corner-down-right-outline',
+        //   },
     //   {
     //     title: 'Đăng ký tài khoản',
     //     link: '/register',
     //     icon: 'plus',
     //   },
     // ]
+  },
+  {
+    title: 'Thông tin server',
+    link: '/information',
+    icon: 'info-outline',
   },
   {
     title: 'Tin tức',
@@ -47,12 +48,17 @@ export const MenuItems = [
     icon: 'edit-outline',
   },
   {
+    title: 'Thông tin tài khoản',
+    link: '/account',
+    icon: 'person',
+  },
+  {
     title: 'Database',
     icon: 'folder-outline',
     children: [
       {
         title: 'Items',
-        link: 'account/db/items',
+        link: '/account/db/items',
         icon: 'shopping-bag-outline'
       },
     ],

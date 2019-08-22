@@ -54,21 +54,21 @@ const routes: Routes = [
       // { path: '**', component: PageNotFoundComponent },
     ],
   },
-  // {
-  //   path: 'account',
-  //   canActivate: [AuthGuard],
-  //   component: ContainerComponent,
-  //   children: [
-  //     {
-  //       path: '',
-  //       loadChildren: './account/account.module#AccountModule'
-  //     },
-  //     {
-  //       path: 'db',
-  //       loadChildren: './database/database.module#DatabaseModule'
-  //     },
-  //   ]
-  // }
+  {
+    path: 'account',
+    canActivate: [AuthGuard],
+    component: ContainerComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: './account/account.module#AccountModule'
+      },
+      {
+        path: 'db',
+        loadChildren: './database/database.module#DatabaseModule'
+      },
+    ]
+  }
 ];
 
 @NgModule({
