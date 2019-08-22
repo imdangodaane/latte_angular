@@ -20,8 +20,8 @@
                       #userid="ngModel">
             </div>
           </div>
-          <div style="width: 80%;" [hidden]="userid.valid || userid.pristine"
-                class="offset-sm-4 col-sm-7 alert alert-danger">
+          <div [hidden]="userid.valid || userid.pristine"
+                class="alert alert-danger">
             Tên đăng nhập phải có ít nhất 4 ký tự
           </div>
           <div class="form-group row">
@@ -37,8 +37,8 @@
                       #user_pass="ngModel">
             </div>
           </div>
-          <div style="width: 80%;" [hidden]="user_pass.valid || user_pass.pristine"
-                class="offset-sm-4 col-sm-7 alert alert-danger">
+          <div [hidden]="user_pass.valid || user_pass.pristine"
+                class="alert alert-danger">
             Mật khẩu phải có ít nhất 4 ký tự
           </div>
           <div class="form-group row">
@@ -53,8 +53,8 @@
                       #confirmPassword="ngModel">
             </div>
           </div>
-          <div style="width: 80%;" [hidden]="user_pass.value === confirmPassword.value || confirmPassword.pristine"
-                class="offset-sm-4 col-sm-7 alert alert-danger">
+          <div [hidden]="user_pass.value === confirmPassword.value || confirmPassword.pristine"
+                class="alert alert-danger">
             Mật khẩu xác nhận chưa trùng khớp
           </div>
           <div class="form-group row">
@@ -70,9 +70,9 @@
                       email>
             </div>
           </div>
-          <div style="width: 80%;" [hidden]="email.valid || email.pristine"
-                class="offset-sm-4 col-sm-7 alert alert-danger">
-            Email không hợp lệ
+          <div [hidden]="email.valid || email.pristine"
+                class="alert alert-danger">
+            Email chưa hợp lệ
           </div>
           <div class="form-group row">
             <label for="sex" class="label col-sm-3 form-control-label">Giới tính</label>

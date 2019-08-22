@@ -25,12 +25,12 @@ export class CarouselListComponent implements OnInit {
       title: 'Third',
       text: '',
     },
-    {
-      imgUrl: 'https://i.pximg.net/img-master/img/2019/08/11/16/19/27/76199125_p15_master1200.jpg',
-      articleUrl: 'https://i.pximg.net/img-master/img/2019/08/11/16/19/27/76199125_p15_master1200.jpg',
-      title: 'Forth',
-      text: '',
-    },
+    // {
+    //   imgUrl: 'https://i.pximg.net/img-master/img/2019/08/11/16/19/27/76199125_p15_master1200.jpg',
+    //   articleUrl: 'https://i.pximg.net/img-master/img/2019/08/11/16/19/27/76199125_p15_master1200.jpg',
+    //   title: 'Forth',
+    //   text: '',
+    // },
   ];
 
   constructor() { }

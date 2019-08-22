@@ -18,7 +18,11 @@ export class ContainerComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/';
-    if (this.authenticationService.currentUserValue) {
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate([this.returnUrl]);
+    // }
+    console.log(this.returnUrl);
+    if (this.authenticationService.checkLogin()) {
       this.router.navigate([this.returnUrl]);
     }
   }

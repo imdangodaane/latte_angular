@@ -20,39 +20,55 @@ export class AuthenticationService {
     private jwtService: JwtHelperService
   ) {
     // this.currentUserSubject = new BehaviorSubject<any>(localStorage.getItem('currentUser'));
-    this.currentUserSubject = new BehaviorSubject<any>(this.cookieService.get('token'));
-    this.currentUser = this.currentUserSubject.asObservable();
+    // this.currentUserSubject = new BehaviorSubject<any>(this.cookieService.get('token'));
+    // this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  public get currentUserValue() {
-    return this.currentUserSubject.value;
+  // public get currentUserValue() {
+    // return this.currentUserSubject.value;
+  // }
+
+  checkLogin() {
+    return this.cookieService.get('token');
+  }
+
+  getUserInformation() {
+    if (!this.checkLogin()) {
+      return;
+    }
+    const decodedData = this.jwtService.decodeToken(this.checkLogin());
+    return {
+      id: decodedData.id,
+      gid: decodedData.gid
+    };
   }
 
   login(username: string, password: string) {
     const loginUrl = environment.apiUrl + 'authentication/login/';
     return this.http.post<any>(loginUrl, { userid: username, user_pass: password })
-      .pipe(map(
-        user => {
-          if (user && user.token) {
-            const decodedToken = this.jwtService.decodeToken(user.token);
-            // console.log(decodedToken.exp);
-            const expireAt = new Date(decodedToken.exp);
-            // console.log(expireTime);
-            // console.log(decodedToken.exp);
-            // const expireAt: Date = new Date(decodedToken.exp * 1000);
-            // console.log(expireAt);
-            // localStorage.setItem('currentUser', user);
-            this.cookieService.set('token', user.token, expireAt);
-            this.currentUserSubject.next(user);
-          }
-          return user;
-        },
-      ));
+      .pipe(map(user => {
+        if (user && user.token) {
+          const decodedData = this.jwtService.decodeToken(user.token);
+          // console.log(decodedData.exp);
+          const expireAt = new Date(decodedData.exp);
+          // localStorage.setItem('currentUser', decodedData.id);
+          // localStorage.setItem('currentUserGroupId', decodedData.gid);
+          // console.log(expireTime);
+          // console.log(decodedData.exp);
+          // const expireAt: Date = new Date(decodedData.exp * 1000);
+          // console.log(expireAt);
+          // localStorage.setItem('currentUser', user);
+          this.cookieService.set('token', user.token, expireAt);
+          // this.currentUserSubject.next(decodedData.id);
+        }
+        return user;
+      },
+    ));
   }
 
   logout() {
     // localStorage.removeItem('currentUser');
     this.cookieService.delete('token');
-    this.currentUserSubject.next(null);
+    // this.currentUserSubject.next(null);
   }
 }

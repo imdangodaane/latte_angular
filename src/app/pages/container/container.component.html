@@ -6,7 +6,7 @@
           <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
             <nb-icon icon="menu-2-outline"></nb-icon>
           </a>
-          <a class="logo" href="/" (click)="navigateHome()">Latte-<span>RO</span></a>
+          <a class="logo" (click)="navigateHome()">Latte-<span>RO</span></a>
         </div>
         <nb-actions>
           <nb-action link="/" title="Home" icon="home-outline"></nb-action>
@@ -14,14 +14,32 @@
           <nb-action link="/news" title="News" icon="browser-outline"></nb-action>
         </nb-actions>
       </div>
-      <nb-user *ngIf="userInformation"
-                name="{{userInformation.name}}"
-                title="{{userInformation.title}}"
-                size="medium"
-                shape="round"
-                color="#cccccc"
-                >
-      </nb-user>
+      <div class="row">
+        <nb-user *ngIf="userInformation"
+                  name="{{userInformation.id}}"
+                  title="{{groupIdReferences[userInformation.gid]}}"
+                  size="medium"
+                  shape="round"
+                  color="#cccccc">
+        </nb-user>
+        <button *ngIf="!userInformation"
+                  class="loginButton"
+                  nbButton
+                  outline
+                  shape="rectangle"
+                  size="small"
+                  status="success"
+                  (click)="onLogin()">Login <nb-icon icon="heart" status="danger"></nb-icon></button>
+        <button *ngIf="userInformation"
+                  class="logoutButton"
+                  nbButton
+                  outline
+                  shape="rectangle"
+                  size="small"
+                  status="info"
+                  (click)="onLogout()">Logout <nb-icon icon="log-out" status="danger"></nb-icon>
+        </button>
+      </div>
     </div>
   </nb-layout-header>
 
