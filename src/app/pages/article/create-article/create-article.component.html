@@ -1,32 +1,55 @@
 <nb-layout>
   <nb-layout-header>
-    <h2>Thêm bài đăng mới</h2>
+    <h3>Thêm bài đăng mới</h3>
   </nb-layout-header>
   <nb-layout-column>
+    <!-- CKEDITOR -->
     <nb-card>
       <form #articleForm="ngForm" (ngSubmit)="onSubmit(articleForm, myCkeditor)" class="form-horizontal">
         <div class="title">
-          <input type="text" class="form-control" placeholder="Tên bài viết"
+          <input type="text" class="form-control" placeholder="Tiêu đề bài đăng"
                   id="title"
                   name="title"
                   class="form-control"
                   ngModel
                   required>
         </div>
+        <div class="badge-picking"></div>
         <nb-card-body>
-          <ckeditor #myCkeditor></ckeditor>
+          <!-- <ckeditor #myCkeditor></ckeditor> -->
+          <ck-editor #myCkeditor></ck-editor>
           <div class="control-area">
             <button type="submit" nbButton status="primary" outline class="btn-submit">Đăng bài</button>
-            <button type="button" nbButton status="success" outline class="btn-submit">Xem trước</button>
+            <!-- <button type="button" nbButton status="success" outline class="btn-submit">Xem trước</button> -->
           </div>
         </nb-card-body>
       </form>
     </nb-card>
+    <!-- PREVIEW -->
     <nb-card>
       <nb-card-header>Xem trước</nb-card-header>
       <nb-card-body>
-        <div [innerHTML]="myCkeditor._data"></div>
+        <div [innerHTML]="myCkeditor.innerValue | safeHtml"></div>
       </nb-card-body>
     </nb-card>
+    <!-- TINYMCE -->
+    <!-- <nb-card>
+      <nb-card-header>
+        TinyMCE
+      </nb-card-header>
+      <nb-card-body>
+        <editor #tinyMCE></editor>
+      </nb-card-body>
+    </nb-card> -->
+    <!-- PREVIEW -->
+    <!-- <nb-card>
+      <nb-card-header>Xem trước</nb-card-header>
+      <nb-card-body>
+        <div [innerHTML]="tinyMCE"></div>
+        <div class="control-area">
+          <button type="button" nbButton status="success" outline class="btn-submit" (click)="onTinyMCE(tinyMCE)">Xem trước</button>
+        </div>
+      </nb-card-body>
+    </nb-card> -->
   </nb-layout-column>
 </nb-layout>

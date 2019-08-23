@@ -438,6 +438,13 @@
     semver "6.3.0"
     semver-intersect "1.4.0"
 
+"@tinymce/tinymce-angular@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@tinymce/tinymce-angular/-/tinymce-angular-3.3.0.tgz#ce941f2201b31bd500fd6647b858789faef416b6"
+  integrity sha512-Dq5Sx6Ccao0FMf+3Ol66zuktHLLdxLz+4g9pcelZGPKfTOMq87934ZNFmZ4x81kuyjihJhMSRtLAo7z4vhaMig==
+  dependencies:
+    tslib "^1.9.0"
+
 "@types/events@*":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
@@ -4593,6 +4600,13 @@ ng2-smart-table@^1.5.0:
   integrity sha512-f25DEecAw16WfpevMr32jyDMYSHDhMezzxKTweBdIHiPVPLq+9N5gu76+oMXNBCUwOrOb3BlerMiZzpnvNxtdw==
   dependencies:
     lodash "^4.17.10"
+    tslib "^1.9.0"
+
+ngx-ckeditor@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-ckeditor/-/ngx-ckeditor-8.0.0.tgz#9c4180eea0a513ad81c028e84b10f4f5312a7bcf"
+  integrity sha512-B9eddnGqQ1Aq/vSfPddT9o2fFIu6CgwKWbmTzmLWNazxEZ+F3cRJj0jbIeSKDNERVLzRRRxn/7q9w+kFszTXHQ==
+  dependencies:
     tslib "^1.9.0"
 
 ngx-cookie-service@^2.2.0:

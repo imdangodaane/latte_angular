@@ -19,11 +19,12 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { DatabaseModule } from './pages/database/database.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { PipeModule } from './_helper/pipe/pipe.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +50,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     MDBBootstrapModule.forRoot(),
+    PipeModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
