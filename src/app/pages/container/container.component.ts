@@ -55,6 +55,10 @@ export class ContainerComponent implements OnInit {
     location.reload();
   }
 
+  onCreateNews() {
+    this.router.navigate(['/article/new-article']);
+  }
+
   ngOnInit() {
     this.menuItems = MenuItems;
     this.getUserInformation();

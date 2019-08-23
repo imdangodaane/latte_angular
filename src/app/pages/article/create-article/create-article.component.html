@@ -1,0 +1,32 @@
+<nb-layout>
+  <nb-layout-header>
+    <h2>Thêm bài đăng mới</h2>
+  </nb-layout-header>
+  <nb-layout-column>
+    <nb-card>
+      <form #articleForm="ngForm" (ngSubmit)="onSubmit(articleForm, myCkeditor)" class="form-horizontal">
+        <div class="title">
+          <input type="text" class="form-control" placeholder="Tên bài viết"
+                  id="title"
+                  name="title"
+                  class="form-control"
+                  ngModel
+                  required>
+        </div>
+        <nb-card-body>
+          <ckeditor #myCkeditor></ckeditor>
+          <div class="control-area">
+            <button type="submit" nbButton status="primary" outline class="btn-submit">Đăng bài</button>
+            <button type="button" nbButton status="success" outline class="btn-submit">Xem trước</button>
+          </div>
+        </nb-card-body>
+      </form>
+    </nb-card>
+    <nb-card>
+      <nb-card-header>Xem trước</nb-card-header>
+      <nb-card-body>
+        <div [innerHTML]="myCkeditor._data"></div>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+</nb-layout>

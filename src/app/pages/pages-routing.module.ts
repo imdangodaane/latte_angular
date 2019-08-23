@@ -7,6 +7,7 @@ import { AuthGuard } from '../_helper/auth.guard';
 const routes: Routes = [
   {
     path: 'article',
+    component: ContainerComponent,
     loadChildren: './article/article.module#ArticleModule'
   },
   {

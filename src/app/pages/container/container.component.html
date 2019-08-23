@@ -15,6 +15,14 @@
         </nb-actions>
       </div>
       <div class="row">
+        <button *ngIf="userInformation && userInformation.gid === 99"
+                  class="loginButton"
+                  nbButton
+                  outline
+                  shape="rectangle"
+                  size="small"
+                  status="success"
+                  (click)="onCreateNews()">Bài viết mới <nb-icon icon="edit-2" status="success"></nb-icon></button>
         <nb-user *ngIf="userInformation"
                   name="{{userInformation.id}}"
                   title="{{groupIdReferences[userInformation.gid]}}"
@@ -37,8 +45,7 @@
                   shape="rectangle"
                   size="small"
                   status="info"
-                  (click)="onLogout()">Logout <nb-icon icon="log-out" status="danger"></nb-icon>
-        </button>
+                  (click)="onLogout()">Logout <nb-icon icon="log-out" status="danger"></nb-icon></button>
       </div>
     </div>
   </nb-layout-header>
