@@ -1,10 +1,9 @@
-<article>
+<!-- <article>
   <div class="container">
     <div class="image">
       <img style="width: 100%;" src="https://photos.animetvn.tv/upload/film_big/bWeTXxl.png" alt="">
     </div>
     <div class="information">
-      <!-- <div><span class="tag">News</span></div> -->
       <div><span class="badge badge-success">News</span></div>
       <div><a [attr.href]="post.link"><h2>{{post.title}}</h2></a></div>
       <div class="content"><p>{{post.text}}</p></div>
@@ -14,6 +13,29 @@
       </div>
     </div>
   </div>
-  <!-- <a [attr.href]="post.link"><h2>{{post.title}}</h2></a>
-  <p>{{post.text}}</p> -->
+</article> -->
+<article *ngIf="article">
+  <div class="container">
+    <div class="image">
+      <img style="width: 100%;" src="article.imgUrl" alt="">
+    </div>
+    <div class="information">
+      <div class="badges">
+        <div *ngIf="article.badges.news"><span class="badge badge-success">News</span></div>
+        <div *ngIf="article.badges.hot"><span class="badge badge-danger">Hot</span></div>
+        <div *ngIf="article.badges.event"><span class="badge badge-primary">Event</span></div>
+        <div *ngIf="article.badges.guide"><span class="badge badge-info">Guide</span></div>
+        <div *ngIf="article.badges.etc"><span class="badge badge-warning">Etc</span></div>
+      </div>
+      <!-- <div><a [attr.href]="article/article.slug"><h2>{{article.title}}</h2></a></div> -->
+      <!-- <div><a href="article/{{article.slug}}"><h2>{{article.title}}</h2></a></div> -->
+      <div><a [routerLink]="['/article', article.slug]"><h2>{{article.title}}</h2></a></div>
+
+      <!-- <div class="content"><p>{{article.content}}</p></div> -->
+      <div class="footer">
+        <div class="author">{{article.author}}</div>
+        <div class="datetime">{{article.create_at}}</div>
+      </div>
+    </div>
+  </div>
 </article>

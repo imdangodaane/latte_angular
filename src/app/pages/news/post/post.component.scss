@@ -10,18 +10,33 @@
   }
   .information
   {
-    padding: 0 1rem;
+    padding: 0;
+    padding-left: 1rem;
+    flex: 1 1 100%;
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
-    .tag
+    .badges
     {
-      display: inline;
-      color: white;
-      background-color: yellowgreen;
-      padding: 2px;
-      border-top-right-radius: 0.3rem;
-      border-bottom-left-radius: 0.3rem;
+      display: flex;
+      flex-flow: row nowrap;
+      .badge
+      {
+        // border-top-left-radius: 0.4rem;
+        // border-top-right-radius: 0;
+        // border-bottom-right-radius: 0.4rem;
+        // border-bottom-left-radius: 0;
+        margin-right: 0.5rem;
+      }
+      .tag
+      {
+        display: inline;
+        color: white;
+        background-color: yellowgreen;
+        padding: 2px;
+        border-top-right-radius: 0.3rem;
+        border-bottom-left-radius: 0.3rem;
+      }
     }
     h4
     {

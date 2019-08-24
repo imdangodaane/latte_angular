@@ -7,32 +7,58 @@ import { NewsService } from '../../../_services/news.service';
   styleUrls: ['./container.component.scss']
 })
 export class ContainerComponent implements OnInit {
-  newsCard = {
+  // newsCard = {
+  //   news: [],
+  //   placeholders: [],
+  //   loading: false,
+  //   pageToLoadNext: 1,
+  // };
+
+  articleCard = {
     news: [],
     placeholders: [],
     loading: false,
-    pageToLoadNext: 1,
+    pageToLoadNext: 1
   };
-  pageSize = 5;
+  pageSize = 50;
 
   constructor(
     private newsService: NewsService
   ) {}
 
-  loadNext(cardData: any) {
+  loadNextArticles(cardData: any) {
     if (cardData.loading) { return; }
 
     cardData.loading = true;
-    this.newsService.load(cardData.pageToLoadNext, this.pageSize)
+    this.newsService.loadArticles(cardData.pageToLoadNext, this.pageSize)
       .subscribe(nextNews => {
+        nextNews.forEach(ele => {
+          try {
+            ele.badges = JSON.parse(ele.badges);
+            ele.create_at = new Date(Date.parse(ele.create_at)).toLocaleString();
+          } catch (error) {}
+        });
         cardData.news.push(...nextNews);
         cardData.loading = false;
         cardData.pageToLoadNext++;
       });
   }
 
+  // loadNext(cardData: any) {
+  //   if (cardData.loading) { return; }
+
+  //   cardData.loading = true;
+  //   this.newsService.load(cardData.pageToLoadNext, this.pageSize)
+  //     .subscribe(nextNews => {
+  //       cardData.news.push(...nextNews);
+  //       cardData.loading = false;
+  //       cardData.pageToLoadNext++;
+  //     });
+  // }
+
   ngOnInit() {
-    this.loadNext(this.newsCard);
+    // this.loadNext(this.newsCard);
+    this.loadNextArticles(this.articleCard);
   }
 
 }
