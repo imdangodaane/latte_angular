@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs';
-// import { delay, map } from 'rxjs/operators';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthenticationService } from './authentication.service';
 import { API_URL } from '../../environments/API-references';
 import { Article } from '../_models/Article';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -12,12 +12,25 @@ import { Article } from '../_models/Article';
 })
 export class ArticleService {
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      Accept: 'application/json',
+    })
+  };
+
   constructor(
     private http: HttpClient,
+    private authenticationService: AuthenticationService,
   ) {}
 
-  newArticle(article: Article) {
-    return this.http.post(JSON.stringify(article), API_URL.API_URL_ARTICLE.NEW_ARTICLE);
+  newArticle(article: Article): Observable<any> {
+    console.log(API_URL.API_URL_ARTICLE.NEW_ARTICLE);
+    console.log(JSON.stringify(article));
+    return this.http.post<any>(API_URL.API_URL_ARTICLE.NEW_ARTICLE, JSON.stringify(article), this.httpOptions)
+      .pipe(map(res => {
+        console.log(res);
+      }));
   }
 
   getArticleById(id: number) {
@@ -29,11 +42,11 @@ export class ArticleService {
   }
 
   updateArticleById(id: number, article: Article) {
-    return this.http.put(JSON.stringify(article), API_URL.API_URL_ARTICLE.ARTICLE_BY_ID.replace('id', id.toString()));
+    return this.http.put(API_URL.API_URL_ARTICLE.ARTICLE_BY_ID.replace('id', id.toString()), JSON.stringify(article));
   }
 
   updateArticleBySlug(slug: string, article: Article) {
-    return this.http.put(JSON.stringify(article), API_URL.API_URL_ARTICLE.ARTICLE_BY_SLUG.replace('slug', slug));
+    return this.http.put(API_URL.API_URL_ARTICLE.ARTICLE_BY_SLUG.replace('slug', slug), JSON.stringify(article));
   }
 
   deleteArticleById(id: number) {

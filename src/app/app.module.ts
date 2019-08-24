@@ -10,7 +10,8 @@ import {
   NbLayoutModule,
   NbSidebarModule,
   NbDatepickerModule,
-  NbMenuModule
+  NbMenuModule,
+  NbToastrModule
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { PagesModule } from './pages/pages.module';
@@ -51,6 +52,7 @@ import { PipeModule } from './_helper/pipe/pipe.module';
     NbMenuModule.forRoot(),
     MDBBootstrapModule.forRoot(),
     PipeModule,
+    NbToastrModule.forRoot(),
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

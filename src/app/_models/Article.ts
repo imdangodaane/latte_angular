@@ -1,9 +1,10 @@
 export class Article {
   title: string;
   content: string;
-  badges: Array<string>;
+  badges: string;
   author: string;
-  slug: string;
+  imgUrl?: string;
+  slug?: string;
   createAt?: Date;
   updateAt?: Date;
 }

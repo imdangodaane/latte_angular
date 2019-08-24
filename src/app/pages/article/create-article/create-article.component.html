@@ -12,13 +12,29 @@
                   name="title"
                   class="form-control"
                   ngModel
-                  required>
+                  required
+                  value="previousArticleContent.title">
+          <div #badgesPicking class="badges-picking">
+            <nb-checkbox [(checked)]="badges.news" status="primary"><span class="text-primary">News</span></nb-checkbox>
+            <nb-checkbox [(checked)]="badges.event" status="success"><span class="text-success">Event</span></nb-checkbox>
+            <nb-checkbox [(checked)]="badges.hot" status="danger"><span class="text-danger">Hot</span></nb-checkbox>
+            <nb-checkbox [(checked)]="badges.guide" status="warning"><span class="text-warning">Guide</span></nb-checkbox>
+            <nb-checkbox [(checked)]="badges.etc" status="info"><span class="text-info">Etc</span></nb-checkbox>
+          </div>
         </div>
-        <div class="badges-picking"></div>
+        <div class="img-url">
+          <input type="text" class="form-control" placeholder="URL ảnh của bài đăng (nếu có). VD: https://photos.animetvn.tv/upload/film_big/bWeTXxl.png"
+                  id="imgUrl"
+                  name="imgUrl"
+                  class="form-control"
+                  ngModel
+                  value="previousArticleContent.imgUrl">
+        </div>
         <nb-card-body>
-          <ck-editor #myCkeditor></ck-editor>
+          <ck-editor data="previousArticleContent.content" #myCkeditor></ck-editor>
           <div class="control-area">
-            <button type="submit" nbButton status="primary" outline class="btn-submit">Đăng bài</button>
+            <button type="submit" nbButton status="primary" outline class="btn-submit"
+                    [disabled]="!articleForm.form.valid">Đăng bài</button>
           </div>
         </nb-card-body>
       </form>

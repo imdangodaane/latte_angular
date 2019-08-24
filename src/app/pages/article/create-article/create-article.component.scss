@@ -1,20 +1,36 @@
-.title
-{
+.title {
   display: flex;
   flex-flow: row nowrap;
   margin-top: 1rem;
-  .form-control
-  {
+  align-items: center;
+
+  .form-control {
     flex: 0 0 60%;
     margin: 0 0.5rem;
   }
-}
-.control-area
-{
-  display: flex;
-  flex-flow: row-reverse nowrap;
-  .btn-submit
-  {
-    margin: 0 0.5rem;
+  .badges-picking {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    margin: 0 1rem;
+    padding: 0 0.5rem;
   }
 }
+
+.img-url {
+  margin: 1rem 1rem 0 1rem !important;
+}
+
+.control-area {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+
+  .btn-submit {
+    margin: 0 0.5rem;
+  }
+
+}
+

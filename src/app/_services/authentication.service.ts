@@ -25,7 +25,7 @@ export class AuthenticationService {
   }
 
   // public get currentUserValue() {
-    // return this.currentUserSubject.value;
+  //   return this.currentUserSubject.value;
   // }
 
   checkLogin() {
