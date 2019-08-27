@@ -16,7 +16,7 @@ const routes: Routes = [
     component: ArticleDetailComponent,
   },
   {
-    path: ':articleUrl',
+    path: ':slug',
     component: ArticleDetailComponent
   },
 ];

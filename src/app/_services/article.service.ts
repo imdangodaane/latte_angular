@@ -34,11 +34,11 @@ export class ArticleService {
   }
 
   getArticleById(id: number) {
-    return this.http.get<Article>(API_URL.API_URL_ARTICLE.ARTICLE_BY_ID.replace('id', id.toString()));
+    return this.http.get<any>(API_URL.API_URL_ARTICLE.ARTICLE_BY_ID.replace('id', id.toString()));
   }
 
   getArticleBySlug(slug: string) {
-    return this.http.get<Article>(API_URL.API_URL_ARTICLE.ARTICLE_BY_SLUG.replace('slug', slug));
+    return this.http.get(API_URL.API_URL_ARTICLE.ARTICLE_BY_SLUG.replace('slug', slug));
   }
 
   updateArticleById(id: number, article: Article) {

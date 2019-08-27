@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ArticleService } from '../../../_services/article.service';
+import { Article } from '../../../_models/Article';
 
 @Component({
   selector: 'app-article-detail',
@@ -7,22 +9,31 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./article-detail.component.scss']
 })
 export class ArticleDetailComponent implements OnInit {
-  article = {
-    imgUrl: 'https://photos.animetvn.tv/upload/film_big/bWeTXxl.png',
-    articleUrl: 'https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg',
-    title: 'Cute vãi nồi =))))',
-    text: '',
-    content: 'Tao là Lord cmn Knight naiiiiiiiiii',
-    author: '',
-  };
+  // article = {
+  //   imgUrl: 'https://photos.animetvn.tv/upload/film_big/bWeTXxl.png',
+  //   articleUrl: 'https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg',
+  //   title: 'Cute vãi nồi =))))',
+  //   text: '',
+  //   content: 'Tao là Lord cmn Knight naiiiiiiiiii',
+  //   author: '',
+  // };
   // tslint:disable-next-line: max-line-length
-  content = `<div>Test test test test test test test test test </div>
-  <img class="w-50" src="https://i.pximg.net/img-original/img/2019/07/02/01/00/22/75509990_p0.jpg" alt="Lord Knight">
-  <img class="w-50" src="https://i.pximg.net/img-master/img/2019/07/08/22/54/14/75623143_p0_master1200.jpg" alt="2">
-  `;
+  // content = `<div>Test test test test test test test test test </div>
+  // <img class="w-50" src="https://i.pximg.net/img-original/img/2019/07/02/01/00/22/75509990_p0.jpg" alt="Lord Knight">
+  // <img class="w-50" src="https://i.pximg.net/img-master/img/2019/07/08/22/54/14/75623143_p0_master1200.jpg" alt="2">
+  // `;
+  article: any;
+
+  getArticleBySlug(slug: string) {
+    this.articleService.getArticleBySlug(slug)
+      .subscribe(res => {
+        this.article = res;
+      });
+  }
 
   constructor(
     private route: ActivatedRoute,
+    private articleService: ArticleService,
   ) { }
 
   ngOnInit() {
@@ -36,6 +47,7 @@ export class ArticleDetailComponent implements OnInit {
     // this.route.queryParamMap.subscribe(queryParams => {
     //   console.log(queryParams.get('articleUrl'), 4);
     // });
+    this.getArticleBySlug(this.route.snapshot.paramMap.get('slug'));
   }
 
 }

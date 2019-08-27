@@ -1,0 +1,49 @@
+.service-box2 {
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: white;
+  border: 1px solid;
+  padding: 0.2rem;
+  .time-box2 {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0.3rem 0;
+    border-right: 1px solid rgba($color: #000000, $alpha: 0.1);
+    flex: 0 0 20%;
+    justify-content: center;
+    align-items: center;
+  }
+  .information-box2 {
+    margin: 0.4rem 1.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 1 100%;
+    justify-content: space-between;
+    align-items: center;
+    .text-information {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      .status {
+        color: red;
+        padding-bottom: 0.2rem;
+      }
+      .salon-and-stylist {
+        .salon {
+          font-size: 18px;
+        }
+        .stylist {
+
+        }
+      }
+      .service-list {
+        display: flex;
+        flex-flow: column nowrap;
+        font-style: italic;
+      }
+    }
+    .dat-button {
+
+    }
+  }
+}
