@@ -44,7 +44,7 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    const loginUrl = environment.apiUrl + 'authentication/login/';
+    const loginUrl = 'http://localhost:8000/api/authentication/login/';
     return this.http.post<any>(loginUrl, { userid: username, user_pass: password })
       .pipe(map(user => {
         if (user && user.token) {

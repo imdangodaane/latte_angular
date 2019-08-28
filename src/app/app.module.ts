@@ -39,9 +39,7 @@ import { PipeModule } from './_helper/pipe/pipe.module';
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: () => {
-          return '';
-        }
+        tokenGetter: null
       }
     }),
     NbDatepickerModule.forRoot(),

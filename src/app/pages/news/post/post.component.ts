@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NewsPost } from '../../../_services/news.service';
-import { Article } from '../../../_models/Article';
+// import { NewsPost } from '../../../_services/news.service';
+// import { Article } from '../../../_models/Article';
 
 @Component({
   selector: 'app-post',
@@ -9,7 +9,7 @@ import { Article } from '../../../_models/Article';
 })
 export class PostComponent implements OnInit {
   // @Input() post: NewsPost;
-  @Input() article: Article;
+  @Input() article: any;
 
   constructor() { }
 
