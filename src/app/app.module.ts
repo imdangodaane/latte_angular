@@ -52,7 +52,7 @@ import { PipeModule } from './_helper/pipe/pipe.module';
     PipeModule,
     NbToastrModule.forRoot(),
   ],
-  providers: [CookieService],
+  providers: [CookieService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,7 +21,7 @@ export class ContainerComponent implements OnInit {
     // if (this.authenticationService.currentUserValue) {
     //   this.router.navigate([this.returnUrl]);
     // }
-    console.log(this.returnUrl);
+    // console.log(this.returnUrl);
     if (this.authenticationService.checkLogin()) {
       this.router.navigate([this.returnUrl]);
     }

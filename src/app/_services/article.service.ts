@@ -25,11 +25,11 @@ export class ArticleService {
   ) {}
 
   newArticle(article: Article): Observable<any> {
-    console.log(API_URL.API_URL_ARTICLE.NEW_ARTICLE);
-    console.log(JSON.stringify(article));
+    // console.log(API_URL.API_URL_ARTICLE.NEW_ARTICLE);
+    // console.log(JSON.stringify(article));
     return this.http.post<any>(API_URL.API_URL_ARTICLE.NEW_ARTICLE, JSON.stringify(article), this.httpOptions)
       .pipe(map(res => {
-        console.log(res);
+        // console.log(res);
       }));
   }
 

@@ -4,8 +4,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { HttpHeaders } from '@angular/common/http';
 
-import { environment } from '../../environments/environment';
+import { API_URL } from '../../environments/API-references';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,11 @@ import { environment } from '../../environments/environment';
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<any>;
   public currentUser: Observable<any>;
+  // httpOptions = {
+  //   headers: new HttpHeaders({
+  //     'Access-Control-Allow-Origin': 'http://139.59.192.246:8080'
+  //   })
+  // };
 
   constructor(
     private http: HttpClient,
@@ -44,8 +50,8 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    const loginUrl = 'http://localhost:8000/api/authentication/login/';
-    return this.http.post<any>(loginUrl, { userid: username, user_pass: password })
+    // const loginUrl = 'http://localhost:8000/api/authentication/login/';
+    return this.http.post<any>(API_URL.API_URL_LOGIN, { userid: username, user_pass: password })
       .pipe(map(user => {
         if (user && user.token) {
           const decodedData = this.jwtService.decodeToken(user.token);

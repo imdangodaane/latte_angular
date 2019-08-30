@@ -22,10 +22,6 @@
       flex-flow: row nowrap;
       .badge
       {
-        // border-top-left-radius: 0.4rem;
-        // border-top-right-radius: 0;
-        // border-bottom-right-radius: 0.4rem;
-        // border-bottom-left-radius: 0;
         margin-right: 0.5rem;
       }
       .tag
@@ -48,10 +44,8 @@
       font-size: 1.5rem;
       overflow: auto;
     }
-    .content
-    {
-
-    }
+    // .content
+    // {}
     .footer
     {
       display: flex;
@@ -60,12 +54,10 @@
       .author
       {
         font-weight: bold;
-        color: red;
+        color: green;
       }
-      .datetime
-      {
-
-      }
+      // .datetime
+      // {}
     }
   }
 }

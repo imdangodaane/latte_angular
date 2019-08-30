@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-// import { NewsPost } from '../../../_services/news.service';
-// import { Article } from '../../../_models/Article';
 
 @Component({
   selector: 'app-post',
@@ -8,8 +6,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  // @Input() post: NewsPost;
   @Input() article: any;
+
+  getArticleIntro(intro: string) {
+    if (intro.length > 150) {
+      return this.article.intro = this.article.intro.slice(0, 150);
+    } else {
+      return this.article.intro;
+    }
+  }
 
   constructor() { }
 

@@ -17,8 +17,8 @@ export class ContainerComponent implements OnInit {
   };
   menuItems: Array<object>;
   groupIdReferences = {
-    0: 'Normal Player',
-    15: 'VIP Player',
+    0: 'Player',
+    15: 'VIP Member',
     99: 'Administrator'
   };
 

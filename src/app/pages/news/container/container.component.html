@@ -9,9 +9,6 @@
       (bottomThreshold)="loadNextArticles(articleCard)"
       class="col-11"
       style="padding: 0;">
-      <!-- <nb-list-item *ngFor="let newsPost of newsCard.news" style="padding: 0.5rem 0;">
-        <app-post [post]="newsPost"></app-post>
-      </nb-list-item> -->
       <nb-list-item *ngFor="let article of articleCard.news" style="padding: 0.5rem 0;">
         <app-post [article]="article"></app-post>
       </nb-list-item>
