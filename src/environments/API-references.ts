@@ -1,4 +1,4 @@
-const BASE_URL = `http://139.59.192.246:8001`;
+const BASE_URL = `https://serve.lattero.xyz`;
 // const BASE_URL = `http://127.0.0.1:8001`;
 const API = 'api';
 const AUTHENTICATION = 'authentication';

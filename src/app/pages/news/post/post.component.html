@@ -1,7 +1,9 @@
 <article *ngIf="article">
   <div class="container">
     <div class="image">
-      <img style="width: 100%;" src="article.imgUrl" alt="">
+      <div *ngIf="article.img_url">
+        <a [routerLink]="['/article', article.slug]"><img style="width: 100%;" src={{article.img_url}} alt=""></a>
+      </div>
     </div>
     <div class="information">
       <div class="badges">
