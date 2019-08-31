@@ -16,6 +16,11 @@ export class PostComponent implements OnInit {
     }
   }
 
+  // convertDatetime(datetime: any) {
+  //   console.log(datetime);
+  //   this.article.create_at = new Date(Date.parse(datetime.create_at)).toLocaleString();
+  // }
+
   constructor() { }
 
   ngOnInit() {

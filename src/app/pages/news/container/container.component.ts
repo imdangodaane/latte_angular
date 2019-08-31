@@ -34,8 +34,8 @@ export class ContainerComponent implements OnInit {
       .subscribe(nextNews => {
         nextNews.forEach(ele => {
           try {
-            ele.badges = JSON.parse(ele.badges);
             ele.create_at = new Date(Date.parse(ele.create_at)).toLocaleString();
+            ele.badges = JSON.parse(ele.badges);
           } catch (error) {}
         });
         cardData.news.push(...nextNews);

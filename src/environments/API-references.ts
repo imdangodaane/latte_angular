@@ -1,5 +1,5 @@
 const BASE_URL = `https://serve.lattero.xyz`;
-// const BASE_URL = `http://127.0.0.1:8001`;
+// const BASE_URL = `http://127.0.0.1:8000`;
 const API = 'api';
 const AUTHENTICATION = 'authentication';
 const LOGIN = 'login';
@@ -11,7 +11,7 @@ const ARTICLE = 'article';
 const API_URL = {
   API_URL_LOGIN: `${BASE_URL}/${API}/${AUTHENTICATION}/${LOGIN}`,
   API_URL_ITEMS: `${BASE_URL}/${API}/${DATABASE}/${ITEMS}`,
-  API_URL_REGISTER: `${BASE_URL}/${API}/${REGISTER}/`,
+  API_URL_REGISTER: `${BASE_URL}/${API}/${REGISTER}`,
   API_URL_ARTICLE: {
     ALL_ARTICLES: `${BASE_URL}/${API}/${ARTICLE}/all`,
     NEW_ARTICLE: `${BASE_URL}/${API}/${ARTICLE}/new`,
