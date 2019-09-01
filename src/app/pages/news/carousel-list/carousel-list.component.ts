@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../../../_services/article.service';
 
 @Component({
   selector: 'app-carousel-list',
@@ -6,36 +7,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel-list.component.scss']
 })
 export class CarouselListComponent implements OnInit {
-  carouselItems = [
-    {
-      imgUrl: 'https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg',
-      articleUrl: 'https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg',
-      title: 'First',
-      text: '',
-    },
-    {
-      imgUrl: 'https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg',
-      articleUrl: 'https://mdbootstrap.com/img/Photos/Slides/img%20(6).jpg',
-      title: 'Second',
-      text: '',
-    },
-    {
-      imgUrl: 'https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg',
-      articleUrl: 'https://mdbootstrap.com/img/Photos/Slides/img%20(9).jpg',
-      title: 'Third',
-      text: '',
-    },
-    // {
-    //   imgUrl: 'https://i.pximg.net/img-master/img/2019/08/11/16/19/27/76199125_p15_master1200.jpg',
-    //   articleUrl: 'https://i.pximg.net/img-master/img/2019/08/11/16/19/27/76199125_p15_master1200.jpg',
-    //   title: 'Forth',
-    //   text: '',
-    // },
-  ];
+  debug = false;
+  carouselItems = [];
 
-  constructor() { }
+  constructor(
+    private articleService: ArticleService,
+  ) { }
 
   ngOnInit() {
+    this.articleService.getAllArticle()
+      .subscribe(
+        res => {
+          this.carouselItems = res.filter(ele => {
+            if (ele.show_on_carousel) {
+              return ele;
+            }
+          });
+          if (this.debug === true) {
+            console.log(this.carouselItems);
+          }
+        },
+        err => {
+          if (this.debug === true) {
+            console.error(err);
+          }
+        }
+      );
   }
 
 }

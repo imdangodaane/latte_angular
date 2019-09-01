@@ -24,6 +24,10 @@ export class ArticleService {
     private authenticationService: AuthenticationService,
   ) {}
 
+  getAllArticle() {
+    return this.http.get<Array<any>>(API_URL.API_URL_ARTICLE.ALL_ARTICLES);
+  }
+
   newArticle(article: Article): Observable<any> {
     // console.log(API_URL.API_URL_ARTICLE.NEW_ARTICLE);
     // console.log(JSON.stringify(article));
@@ -55,5 +59,9 @@ export class ArticleService {
 
   deleteArticleBySlug(slug: string) {
     return this.http.delete(API_URL.API_URL_ARTICLE.ARTICLE_BY_ID.replace('slug', slug));
+  }
+
+  setArticleOnCarousel(id: number) {
+    return this.http.get(API_URL.API_URL_ARTICLE.SET_ARTICLE_ON_CAROUSEL.replace('id', id.toString()));
   }
 }

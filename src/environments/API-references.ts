@@ -17,6 +17,7 @@ const API_URL = {
     NEW_ARTICLE: `${BASE_URL}/${API}/${ARTICLE}/new`,
     ARTICLE_BY_ID: `${BASE_URL}/${API}/${ARTICLE}/id`,
     ARTICLE_BY_SLUG: `${BASE_URL}/${API}/${ARTICLE}/slug`,
+    SET_ARTICLE_ON_CAROUSEL: `${BASE_URL}/${API}/${ARTICLE}/id/setarticleoncarousel`,
   }
 };
 

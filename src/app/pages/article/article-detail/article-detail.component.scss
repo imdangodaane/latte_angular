@@ -130,3 +130,14 @@
     }
   }
 }
+
+.article__button-configuration {
+  display: flex;
+  flex-flow: row nowrap;
+  .article__button-configuration__edit {
+    margin-right: 0.5rem;
+  }
+  .article__button-configuration__set-on-carousel {
+    margin-right: 0.5rem;
+  }
+}

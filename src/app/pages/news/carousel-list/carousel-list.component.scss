@@ -1,0 +1,13 @@
+.carousel-caption {
+  background-color: rgba($color: #000000, $alpha: 0.3);
+  border-radius: 1rem;
+  .carousel-caption__title {
+    font-size: 2vw;
+    font-weight: bold;
+    font-family: 'iCiel Avant Garde Gothic';
+    color: #E0FFFF;
+  }
+  .carousel-caption__title:hover {
+    color: greenyellow;
+  }
+}

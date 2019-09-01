@@ -20,5 +20,19 @@
         </nb-card-body>
       </nb-card>
     </nb-layout-column>
+    <nb-layout-footer>
+      <div *ngIf="currentUser" class="article__button-configuration">
+        <button *ngIf="currentUser.id === article.author || currentUser.gid === 99"
+                class="article__button-configuration__edit"
+                nbButton
+                status="primary"
+                (click)="editArticle()">Sửa bài viết</button>
+        <button *ngIf="currentUser.gid === 99"
+                class="article__button-configuration__set-on-carousel"
+                nbButton
+                status="info"
+                (click)="setArticleOnCarousel()">Đăng trên carousel</button>
+      </div>
+    </nb-layout-footer>
   </nb-layout>
 </div>
