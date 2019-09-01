@@ -3,7 +3,7 @@
     <nb-card>
       <nb-card-header>
         <h3>Đăng ký tài khoản</h3>
-        <div class="alert" *ngIf="returnMessage"><nb-alert [status]="returnCode>=400?'danger':'success'">{{ returnMessage }}</nb-alert></div>
+        <!-- <div class="alert" *ngIf="returnMessage"><nb-alert [status]="returnCode>=400?'danger':'success'">{{ returnMessage }}</nb-alert></div> -->
       </nb-card-header>
       <nb-card-body>
         <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="form-horizontal">
@@ -66,8 +66,7 @@
                       class="form-control"
                       ngModel
                       required
-                      #email="ngModel"
-                      email>
+                      #email="ngModel">
             </div>
           </div>
           <div [hidden]="email.valid || email.pristine"
